@@ -8,7 +8,7 @@ using EmployeesApp.Domain;
 
 namespace EmployeesApp.Infrastructure
 {
-    internal class EmployeeRepository : IEmployeeRepository 
+    public class EmployeeRepository : IEmployeeRepository 
     {
         readonly List<Employee> employees =
        [
@@ -52,8 +52,8 @@ namespace EmployeesApp.Infrastructure
 
         public Employee[] GetAll() => [.. employees.OrderBy(e => e.Name)];
 
-        public Employee GetById(int id) => employees
-            .Single(e => e.Id == id);
+        public Employee? GetById(int id) => employees
+            .SingleOrDefault(e => e.Id == id);
 
         public bool CheckIsVIP(Employee employee) =>
             employee.Email.StartsWith("ADMIN", StringComparison.CurrentCultureIgnoreCase);

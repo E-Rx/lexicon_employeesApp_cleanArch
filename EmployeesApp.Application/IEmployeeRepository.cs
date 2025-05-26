@@ -13,7 +13,7 @@ namespace EmployeesApp.Application
 
         Employee[] GetAll();
 
-        Employee GetById(int id);
+        Employee? GetById(int id);
 
         public bool CheckIsVIP(Employee employee);
     }
