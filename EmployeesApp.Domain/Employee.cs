@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 
-namespace EmployeesApp.Web.Models
+namespace EmployeesApp.Domain
 {
     public class Employee
     {

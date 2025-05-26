@@ -1,12 +1,18 @@
-﻿using EmployeesApp.Web.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using EmployeesApp.Application;
+using EmployeesApp.Domain;
 
-namespace EmployeesApp.Web.Services
+namespace EmployeesApp.Infrastructure
 {
-    public class EmployeeService : IEmployeeService
+    internal class EmployeeRepository : IEmployeeRepository 
     {
         readonly List<Employee> employees =
-        [
-            new Employee()
+       [
+           new Employee()
             {
                 Id = 562,
                 Name = "Anders Hejlsberg",
@@ -44,17 +50,7 @@ namespace EmployeesApp.Web.Services
             employees.Add(employee);
         }
 
-
-        // Collection expression syntax, introduced in C# 12.
         public Employee[] GetAll() => [.. employees.OrderBy(e => e.Name)];
-
-        ////Classic C# syntax for GetAll()
-        //public Employee[] GetAll()
-        //{
-        //    return employees
-        //        .OrderBy(e => e.Name)
-        //        .ToArray();
-        //}
 
         public Employee GetById(int id) => employees
             .Single(e => e.Id == id);
